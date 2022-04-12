@@ -1,0 +1,174 @@
+// css header
+header {
+  height: var(--heightHeader);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: $t;
+  .container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    // padding-right: 15px;
+    // padding-left: 15px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: $t;
+    .logo {
+      a {
+        cursor: none;
+        img {
+          width: 186px;
+          height: 38px;
+          object-fit: contain;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+    }
+    .menu {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      li {
+        height: 100%;
+        padding: 0 15px;
+        a {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          cursor: none;
+          @include text(25px, CT, 42px, $white-cl, none);
+          transition: $t;
+          position: relative;
+          &::before {
+            content: "";
+            width: 0;
+            height: 2px;
+            background: $white-cl;
+            display: block;
+            position: absolute;
+            bottom: 30%;
+            @include transition($t);
+          }
+          &:hover::before {
+            width: 100%;
+            @include transition($t);
+          }
+        }
+      }
+    }
+    .active-menu {
+      &::before {
+        width: 100% !important;
+        @include transition($t);
+      }
+    }
+  }
+  .nav-menu-span {
+    display: none;
+  }
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: $t;
+  .container {
+    padding-right: 30px;
+    padding-left: 30px;
+    transition: $t;
+  }
+}
+.active-v2 {
+  transform: translateY(0px);
+  transition-duration: 0.1s;
+}
+.blackMenu {
+  color: #000 !important;
+  transition: $t;
+  &::before {
+    background: #000 !important;
+  }
+}
+@include xs {
+  header {
+    height: 60px;
+    .container {
+      .logo {
+        a {
+          img {
+            width: 100px;
+            height: 30px;
+            object-fit: contain;
+          }
+          .hidden {
+            display: none;
+          }
+        }
+      }
+      .menu {
+        display: none !important;
+      }
+    }
+    .nav-menu-span {
+      display: block;
+      width: 30px;
+      height: 40px;
+      position: relative;
+      transition: 0.5s ease-in-out;
+      overflow: hidden;
+      span {
+        position: absolute;
+        margin-bottom: 3px;
+        height: 2px;
+        width: 100%;
+        background: $white-cl;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.5s ease-in-out;
+        &:nth-child(1) {
+          top: 15px;
+        }
+        &:nth-child(2) {
+          top: 20px;
+        }
+        &:nth-child(3) {
+          top: 25px;
+        }
+      }
+    }
+    .black-nav {
+      span {
+        background: black;
+      }
+    }
+  }
+}
+@include md {
+  header {
+    .container {
+      .logo a img {
+        width: 130px;
+        height: 35px;
+      }
+      .menu li {
+        padding: 0 10px;
+        a {
+          font-size: 18px;
+          // @include text(25px, CT, 42px, $white-cl, none);
+        }
+      }
+    }
+  }
+}

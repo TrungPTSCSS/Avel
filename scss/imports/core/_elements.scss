@@ -1,0 +1,28 @@
+// css button, title, icon, elements...
+img {
+  max-width: 100%;
+}
+.button {
+  background: $red-cl;
+  letter-spacing: -0.03em;
+  @include text(30px, AV, normal, $white-cl, none);
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  // cursor: pointer;
+  border: 1px solid transparent;
+  transition: $t;
+  @media (max-width: $lg-max) {
+    font-size: 16px;
+    height: 50px;
+  }
+  &:hover {
+    background: transparent;
+    color: $red-cl;
+    border: 1px solid $red-cl;
+    transition-delay: 0s !important;
+    transition: $t;
+  }
+}
+
